@@ -5,19 +5,23 @@ import numpy as np
 import math
 from matplotlib import pyplot as plt
 
-
-def binarization(img):# פונקציה שמבצעת בינאריזציה על התמונה לפי OTSU
+#A function that binarizes an image according to OTSU
+def binarization(img):
     imgGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     blurred = cv2.GaussianBlur(imgGray, (61, 61), 0)
     otsu_threshold, image_result = cv2.threshold(blurred, 0, 255, cv2.THRESH_BINARY|cv2.THRESH_OTSU)
     return image_result
-def findMaxContour(img):# פנוקציה שמוצאת את הcontur הגדול ביותר לפי שטח
+
+# Function that finds the largest contour by area
+def findMaxContour(img):
     imgBin = binarization(img)
     (cnts, _) = cv2.findContours(imgBin, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     maxArea=max(cv2.contourArea(c) for c in cnts)
     maxCnt=list(c for c in cnts if cv2.contourArea(c)==maxArea)[0]
     return maxCnt
-def createMetrix(img):# פונקציה שממירה את הCUNTOR ללמערך של ארבע נקודות ובונה מטריצה טרנספורמציה
+
+# A function that converts the cuntor to a four-point array and builds a transformation matrix
+def createMetrix(img):
     cnt=findMaxContour(img)
 
     epsilon = 0.05 *cv2.arcLength(cnt, True)
@@ -34,6 +38,7 @@ def createMetrix(img):# פונקציה שממירה את הCUNTOR ללמערך �
 def rotate(l, n):
      return l[n:] + l[:n]
 
+#A function that calculates the height and width of the document
 def calcHeightAndWidth(arr):
     dic1=int(math.dist(arr[0],arr[1]))
     dic2=int(math.dist(arr[1],arr[2]))
@@ -44,14 +49,14 @@ def calcHeightAndWidth(arr):
         h = dic2
         w = dic1
     return h,w
-def camScanner(path):# פונקציה שמבצעת טרנספורמציה
+
+# A function that performs a transformation    
+def camScanner(path):
     img = cv2.imread(path, 1)
     imgCopy = img.copy()
 
     M,h,w=createMetrix(img)
     dst=cv2.warpPerspective(imgCopy, M, (w, h))
-    #plt.imshow(cv2.cvtColor(dst, cv2.COLOR_BGR2RGB)), plt.title('dst')
-    # plt.show()
     cv2.imwrite('output\camScanner.jpg', cv2.cvtColor(dst, cv2.COLOR_BGR2RGB))
     return 'output\camScanner.jpg'
 

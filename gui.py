@@ -145,7 +145,7 @@ def panoramaApp():
     ]
     window = sg.Window("Panorama App", layout,finalize=True)
     update_image(window['-IMAGE_LEFT-'], 'example/clear color/image.png')
-    update_image(window['-IMAGE_RIGHT-'], '.example/clear color/image.png')
+    update_image(window['-IMAGE_RIGHT-'], 'example/clear color/image.png')
     while True:
         event, values = window.read()
         if event == "Exit" or event == sg.WIN_CLOSED:
@@ -200,10 +200,6 @@ def homePage():
         [
             sg.Text('3) panorama - Do you have a pair of photos that contain a common area? Let us turn them into one perfect panorama for you!\n\n\n',font=("MingLiU_HKSCS-ExtB", 20))
         ],
-        # [
-        #     sg.Text('4) for next app- bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla\n\n\n',font=("MingLiU_HKSCS-ExtB", 20))
-        # ],
-
 
         [
             sg.Button("clear color",font=("Ariel", 20),pad=((540,50), 0)),
@@ -227,8 +223,6 @@ def homePage():
             camScannerApp()
         elif event == "panorama":
             panoramaApp()
-        # elif event == "next app":
-        #     continue
     window.close()
 
 

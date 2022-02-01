@@ -21,8 +21,8 @@ that contains a document and the program will take the document and isolate it
 from the rest of the image and it will be displayed in full size of the image.
 ```
 
-:exclamation: assumptions on the input
-  - [x] A page is the main object in the image\740
+:exclamation: **assumptions on the input**
+  - [x] A page is the main object in the image
   - [x] The photographed page is a rectangular page
   - [x] The height of the page is greater than its width
   - [x] The page is lighter than the background on which it was filmed.
@@ -33,7 +33,7 @@ In the featur we will "sew" two images that contain a common area to one image t
 both in thesame plane.
 This is done by finding key points in both images and finding a match by describing them.
 ```
-:exclamation: assumptions on the input
+:exclamation: **assumptions on the input**
   - [x] The two images should share some common area.
 
 # Technologies:

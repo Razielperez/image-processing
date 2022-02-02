@@ -10,13 +10,13 @@ features in order to give examples of the system results.
 
 ### Clear color
 ```
-In this featur we will remove colors from an image by the HSV model.
+In this feature we will remove colors from an image by the HSV model.
 You can select several colors that we want to remove 
 and thus we get an image that contains only the colors we want.
 ```
 ### Cam Scanner
 ```
-In the featur we will make changes to an image by getting an image
+In the feature we will make changes to an image by getting an image
 that contains a document and the program will take the document and isolate it
 from the rest of the image and it will be displayed in full size of the image.
 ```
@@ -29,7 +29,7 @@ from the rest of the image and it will be displayed in full size of the image.
 
 ### Panorama
 ```
-In the featur we will "sew" two images that contain a common area to one image that shows
+In the feature we will "sew" two images that contain a common area to one image that shows
 both in thesame plane.
 This is done by finding key points in both images and finding a match by describing them.
 ```

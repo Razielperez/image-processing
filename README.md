@@ -1,7 +1,7 @@
 # image-processing
 
 This project is a system that presents some image processing operations.
-This system is displayed by Peyton's GUI for user convenience
+This system is displayed by Python's GUI for user convenience
 The main purpose of this project is to present the features found in it.
 This project contains a "Examples" folder divided according to the various 
 features in order to give examples of the system results.
